@@ -1,0 +1,11 @@
+.bg-box {
+  width: 750px;
+  height: 425px;
+  background: url("/images/lamp-png-34914.png") top/30px repeat-x,
+    url("/images/green-png-44873.png") bottom/150px repeat-x,
+    url("https://vignette.wikia.nocookie.net/mashaandthebear/images/e/e0/%D0%81%D0%B6%D0%B8%D0%BA.png/revision/latest?cb=20180209130328&path-prefix=ru")
+      left/20px repeat-y,
+    url("/images/58eb07b830eab15b56162788.png") right/20px repeat-y,
+    url("/images/дім.png") center no-repeat;
+  background-color: #29700a;
+}
