@@ -15,7 +15,7 @@
   background-color: #808080;
   color: white;
   letter-spacing: 1px;
-  transition: width 450ms;
+  transition: width 500ms;
 }
 
 .container:hover,
@@ -34,10 +34,11 @@
 .menu {
   position: absolute;
   top: 5%;
-  left: -1000%;
+  left: -400%;
   text-transform: uppercase;
   list-style: none;
-  transition: display, left 450ms;
+  background-color: none;
+  transition: left 350ms;
 }
 
 .container:hover .menu {
