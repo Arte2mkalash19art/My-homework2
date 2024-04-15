@@ -1,22 +1,40 @@
-const result = 5 + 5 + "5";
-console.log(result);
+//№1 field1 це мають бути змінні з перевіркою про кількість символів
+if (field1 && field2) {
+  alert("Обидва поля заповнені");
+} else {
+  alert("Не всі поля заповнені");
+}
 
-// Перевірка наявності символу @ у змінній email
-const email = "example@example.com";
-const containsAtSymbol = email.includes('@');
-const emailLength = email.length;
-console.log(`Чи містить email символ @: ${containsAtSymbol}`);
-console.log(`Загальна кількість символів у email: ${emailLength}`);
+//логіку отримання даних ми не знаємо
+let sum = field1 + field2;
+if (sum > 10) {
+  alert("Sum is greater than 10");
+} else {
+  alert("Сума менша або дорівнює 10");
+}
 
-// Запис кожного слова в окрему змінну та їх поєднання
-const word1 = "My";
-const word2 = "name";
-const word3 = "is";
-let fullName = `${word1} ${word2} ${word3}`;
-fullName += ' Viktor';
-console.log(`Повне ім'я: ${fullName}`);
+//№3
+let text = "JavaScript";
+if (text.includes("JavaScript")) {
+  alert("Текст містить слово JavaScript");
+} else {
+  alert("Текст не містить слово JavaScript");
+}
 
-// Виведення повідомлення про оплату через alert
-const userName = "Олександро";
-const payment = 300;
-alert(`Дякуємо, ${userName}! До сплати ${payment} гривень`);
+//№4
+let number = 14;
+if (number > 10 && number < 20) {
+  alert("Число входить в діапазон від 10 до 20");
+} else {
+  alert("Число не входить в діапазон від 10 до 20");
+}
+
+//#5
+let name = "Artem";
+let email = "pizadolgmail.com";
+let password = "134143";
+if (name.length >= 3 && email.includes("@") && email.includes(".") && password.length >= 6) {
+  alert("інша_сторінка.html");
+} else {
+  alert("Дані введені неправильно");
+}
