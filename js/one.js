@@ -1,40 +1,123 @@
-//№1 field1 це мають бути змінні з перевіркою про кількість символів
-if (field1 && field2) {
-  alert("Обидва поля заповнені");
-} else {
-  alert("Не всі поля заповнені");
+let beverage = prompt('Введіть напій бла бла').toLowerCase();
+switch (beverage) {
+  case "кава":
+    console.log(`Вітаю ви вибрали каву`);
+    break;
+  case "чай":
+    console.log(`Вітаю ви вибрали чай`);
+    break;
+  case "сік":
+    console.log(`Вітаю ви вибрали сік`);
+    break;
+  default:
+    console.log("Введіть правильну назву напою.");
+} 
+
+//Вибір коліру
+let color = prompt(`Введіть колір світлофора`).toLowerCase();
+
+switch (color) {
+  case "червоний":
+    console.log(`стоп`);
+    break;
+  case "зелений":
+    console.log(`йти`);
+    break;
+  case "жовтий":
+    console.log(`Чекай`);
+    break;
+  default:
+    console.log("Введіть правильну назву кольору.");
 }
 
-//логіку отримання даних ми не знаємо
-let sum = field1 + field2;
-if (sum > 10) {
-  alert("Sum is greater than 10");
-} else {
-  alert("Сума менша або дорівнює 10");
+//Поле введення номеру місяця для визначення пори року:
+let month = Number(prompt(`Введіть номер місяця`));
+
+switch (month >= 1 && month <= 12) {
+  case month >= 3 && month <= 5:
+    console.log(`Це весна`);
+    break;
+  case month >= 6 && month <= 8:
+    console.log(`Це літо.`);
+    break;
+  case month >= 9 && month <= 11:
+    console.log(`Це Осінь`);
+    break;
+  default:
+    console.log(`Це Зима`);
 }
 
-//№3
-let text = "JavaScript";
-if (text.includes("JavaScript")) {
-  alert("Текст містить слово JavaScript");
-} else {
-  alert("Текст не містить слово JavaScript");
+//При натисканні на кнопку виводити кількість днів у цьому місяці.
+const monthDay = parseInt(prompt("Введіть номер місяця."));
+let daysInMonth;
+
+switch (monthDay) {
+  case 1:
+  case 3:
+  case 5:
+  case 7:
+  case 8:
+  case 10:
+  case 12:
+    daysInMonth = 31;
+    console.log(daysInMonth);
+    break;
+  case 4:
+  case 6:
+  case 9:
+  case 11:
+    daysInMonth = 30;
+    console.log(daysInMonth);
+    break;
+  case 2:
+    const year = new Date().getFullYear(); //Нагуглив. Намагаюсь вирішити завдання тільки те що знаю, але іноді доводиться шукати інформацію.
+    daysInMonth =
+      year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0) ? 29 : 28;
+    console.log(daysInMonth);
+  default:
+    alert(`Ви ввели неправильний номер місяця!!!`);
 }
 
-//№4
-let number = 14;
-if (number > 10 && number < 20) {
-  alert("Число входить в діапазон від 10 до 20");
-} else {
-  alert("Число не входить в діапазон від 10 до 20");
+//Поле введення для перевірки дня тижня
+let enteredDay = prompt(`Введіть день тижня.`).toLowerCase();
+switch (enteredDay) {
+  case "понеділок":
+  case "вівторок":
+  case "середа":
+  case "четвер":
+  case "п’ятниця":
+    console.log("Це робочий день.");
+    break;
+  case "субота":
+  case "неділя":
+    console.log("Це вихідний день.");
+    break;
+  default:
+    console.log("Введіть правильно день тижня.");
 }
 
-//#5
-let name = "Artem";
-let email = "pizadolgmail.com";
-let password = "134143";
-if (name.length >= 3 && email.includes("@") && email.includes(".") && password.length >= 6) {
-  alert("інша_сторінка.html");
-} else {
-  alert("Дані введені неправильно");
+//калькулятор
+let operator = prompt(`Введіть бажану дію "+" "-" "/-ділення" "*-множення"`);
+let operand1 = parseFloat(prompt(`Введіть перше число.`));
+let operand2 = parseFloat(prompt(`Введіть друге число.`));
+let result;
+switch (operator) {
+  case "+":
+    result = operand1 + operand2;
+    break;
+  case "-":
+    result = operand1 - operand2;
+    break;
+  case "*":
+    result = operand1 * operand2;
+    break;
+  case "/":
+    if (operand2 === 0) {
+      console.log("Помилка: ділення на нуль.");
+    }
+    result = operand1 / operand2;
+    break;
+  default:
+    console.log("Невідома операція.");
 }
+console.log(result);
