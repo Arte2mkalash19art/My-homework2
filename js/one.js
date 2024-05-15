@@ -1,44 +1,62 @@
-// 1. Створення масиву з трьох чисел і зміна значення другого елемента на 10.
-let numbersArray = [1, 2, 3];
-numbersArray[1] = 10;
-console.table(numbersArray);
+// Завдання 1: Об'єднання елементів массива в один рядок
 
-// 2. Створення масиву із трьох рядків і додавання ще одного рядка.
-let stringsArray = ["one", "two", "three"];
-stringsArray.push("four");
-console.table(stringsArray);
-
-// 3. Скрипт, що повертає суму всіх чисел в масиві.
-let array = [5, 1, 4];
-let sum = 0;
-for (let i = 0; i < array.length; i += 1) {
-  sum += array[i];
-}
-console.log(`Сума = ${sum}`);
-
-// 4. Створення масиву з 5 чисел і виведення на екран всіх елементів масиву за допомогою циклу for.
-let numbersArray2 = [1, 2, 3, 4, 5];
-for (let i = 0; i < numbersArray2.length; i += 1) {
-  console.log(numbersArray2[i]);
+// Через цикл for
+function joinArrayWithFor(arr) {
+    let result = '';
+    for (let i = 0; i < arr.length; i++) {
+        result += arr[i];
+        if (i !== arr.length - 1) {
+            result += ', ';
+        }
+    }
+    return result;
 }
 
-// 5. Створення масиву із 5 рядків і виведення на екран кожного рядка, який містить більше 5 символів.
-let stringsArray2 = ["one", "two", "three", "four", "five"];
-for (let i = 0; i < stringsArray2.length; i++) {
-  if (stringsArray2[i].length > 5) {
-    console.log(stringsArray2[i]);
-  }
+// Через метод join()
+function joinArrayWithJoin(arr) {
+    return arr.join(', ');
 }
 
-// 6. Створення масиву з 10 чисел і знаходження максимального значення.
-let numbersArray3 = [5, 8, 12, 3, 6, 10, 7, 20, 15, 1];
-let maxNumber = Math.max(...numbersArray3);
-console.log("Максимальне значення: " + maxNumber);
+// Приклад використання
+const array = ['apple', 'banana', 'orange', 'grape'];
+console.log(joinArrayWithFor(array));
+console.log(joinArrayWithJoin(array));
 
-// 7. Створення масиву з 10 чисел і виведення всіх парних чисел.
-let numbersArray4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-for (let i = 0; i < numbersArray4.length; i++) {
-  if (numbersArray4[i] % 2 === 0) {
-    console.log(numbersArray4[i]);
-  }
+
+// Завдання 2: Працюємо з колекцією карток в Trello
+
+const trelloCards = ['Card 1', 'Card 2', 'Card 3', 'Card 4'];
+
+// Видалити картку за індексом
+function deleteCard(index) {
+    if (index >= 0 && index < trelloCards.length) {
+        trelloCards.splice(index, 1);
+        console.log('Картка успішно видалена');
+    } else {
+        console.log('Індекс виходить за межі діапазону');
+    }
 }
+
+// Додати картку
+function addCard(card) {
+    trelloCards.push(card);
+    console.log('Картка успішно додана');
+}
+
+// Оновити картку за індексом
+function updateCard(index, newContent) {
+    if (index >= 0 && index < trelloCards.length) {
+        trelloCards[index] = newContent;
+        console.log('Картка успішно оновлена');
+    } else {
+        console.log('Індекс виходить за межі діапазону');
+    }
+}
+
+console.log(trelloCards); // Початковий стан
+deleteCard(1); // Видалення картки з індексом 1
+console.log(trelloCards); // Після видалення
+addCard('New Card'); // Додавання нової картки
+console.log(trelloCards); // Після додавання
+updateCard(0, 'Updated Card'); // Оновлення першої картки
+console.log(trelloCards); // Після оновлення
