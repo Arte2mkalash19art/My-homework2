@@ -1,62 +1,94 @@
-// Завдання 1: Об'єднання елементів массива в один рядок
+//Завдання 1
+function logItems(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(`${i + 1} - ${array[i]}`);
+    }
+}
 
-// Через цикл for
-function joinArrayWithFor(arr) {
-    let result = '';
-    for (let i = 0; i < arr.length; i++) {
-        result += arr[i];
-        if (i !== arr.length - 1) {
-            result += ', ';
+// Приклад використання:
+logItems(['Mango', 'Poly', 'Ajax']);
+
+
+//Завдання 2
+function calculateEngravingPrice(message, pricePerWord) {
+    const words = message.split(' ');
+    return words.length * pricePerWord;
+}
+
+// Приклад використання:
+console.log(calculateEngravingPrice("Hello world", 10)); // 20
+
+
+//Завдання 3
+function findLongestWord(string) {
+    const words = string.split(' ');
+    let longestWord = words[0];
+
+    for (const word of words) {
+        if (word.length > longestWord.length) {
+            longestWord = word;
         }
     }
-    return result;
+
+    return longestWord;
 }
 
-// Через метод join()
-function joinArrayWithJoin(arr) {
-    return arr.join(', ');
-}
-
-// Приклад використання
-const array = ['apple', 'banana', 'orange', 'grape'];
-console.log(joinArrayWithFor(array));
-console.log(joinArrayWithJoin(array));
+// Приклад використання:
+console.log(findLongestWord("The quick brown fox jumps over the lazy dog")); // "jumps"
 
 
-// Завдання 2: Працюємо з колекцією карток в Trello
-
-const trelloCards = ['Card 1', 'Card 2', 'Card 3', 'Card 4'];
-
-// Видалити картку за індексом
-function deleteCard(index) {
-    if (index >= 0 && index < trelloCards.length) {
-        trelloCards.splice(index, 1);
-        console.log('Картка успішно видалена');
+//Завдання 4
+function formatString(string) {
+    if (string.length <= 40) {
+        return string;
     } else {
-        console.log('Індекс виходить за межі діапазону');
+        return string.slice(0, 40) + '...';
     }
 }
 
-// Додати картку
-function addCard(card) {
-    trelloCards.push(card);
-    console.log('Картка успішно додана');
+// Приклад використання:
+console.log(formatString("Curabitur ligula sapien, tincidunt non.")); // поверне оригінальний рядок
+console.log(formatString("Vestibulum facilisis, purus nec pulvinar iaculis.")); // поверне обрізаний рядок з трьома крапками
+
+
+//Завдання 5
+function checkForSpam(message) {
+    const lowerCaseMessage = message.toLowerCase();
+    return lowerCaseMessage.includes('spam') || lowerCaseMessage.includes('sale');
 }
 
-// Оновити картку за індексом
-function updateCard(index, newContent) {
-    if (index >= 0 && index < trelloCards.length) {
-        trelloCards[index] = newContent;
-        console.log('Картка успішно оновлена');
+// Приклад використання:
+console.log(checkForSpam("Latest technology news")); // false
+console.log(checkForSpam("Get best SALE offers now!")); // true
+console.log(checkForSpam("SPAM emails are annoying")); // true
+
+
+//Завдання 6
+let input;
+const numbers = [];
+let total = 0;
+
+while (true) {
+    input = prompt("Введіть число (або натисніть Cancel для завершення)");
+
+    if (input === null) {
+        break;
+    }
+
+    input = Number(input);
+
+    if (Number.isNaN(input)) {
+        alert('Було введено не число, попробуйте ще раз');
     } else {
-        console.log('Індекс виходить за межі діапазону');
+        numbers.push(input);
     }
 }
 
-console.log(trelloCards); // Початковий стан
-deleteCard(1); // Видалення картки з індексом 1
-console.log(trelloCards); // Після видалення
-addCard('New Card'); // Додавання нової картки
-console.log(trelloCards); // Після додавання
-updateCard(0, 'Updated Card'); // Оновлення першої картки
-console.log(trelloCards); // Після оновлення
+if (numbers.length > 0) {
+    for (const number of numbers) {
+        total += number;
+    }
+    console.log(`Загальна сума чисел дорівнює ${total}`);
+} else {
+    console.log('Масив чисел порожній');
+}
